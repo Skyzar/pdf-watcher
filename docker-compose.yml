@@ -1,0 +1,10 @@
+services:
+  pdf-watcher:
+    build: .
+    image: pdf-watcher:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SNAPSHOT_FILE: /data/lastSnapshot.json
+    volumes:
+      - ./data:/data
